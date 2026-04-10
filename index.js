@@ -22,11 +22,10 @@ function setup() {
   const sortedMessages = computed(() =>
     messageObjects.value.toSorted((a,b) => b.value.published - a.value.published)
   );
-
-  const currSending = ref(false);
+  const isSending = ref(false);
 
   async function sendMessage() {
-    currSending.value = true;
+    isSending.value = true;
     await new Promise((resolve) => setTimeout(resolve, 1000));
     messageObjects.value.push({
       value: {
@@ -35,14 +34,14 @@ function setup() {
       },
     });
     myMessage.value ="";
-    currSending.value = false;
+    isSending.value = false;
     }
 
   return {
     myMessage,
     messageObjects,
     sortedMessages,
-    currSending,
+    isSending,
     sendMessage,
   };
 }
