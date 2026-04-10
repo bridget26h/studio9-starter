@@ -34,7 +34,7 @@
                         v-model="myMessage"
                         placeholder="Message"
                     />
-                    <input type="submit" value="Send" :disabled = "!myMessage"/>
+                    <input type="submit" :value= "currSending ? 'Sending...' : 'Send'" :disabled = "!myMessage"/>
                 </form>
             </template>
 

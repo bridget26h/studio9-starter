@@ -23,7 +23,10 @@ function setup() {
     messageObjects.value.toSorted((a,b) => b.value.published - a.value.published)
   );
 
+  const currSending = ref(false);
+
   async function sendMessage() {
+    currSending.value = true;
     await new Promise((resolve) => setTimeout(resolve, 1000));
     messageObjects.value.push({
       value: {
@@ -32,12 +35,14 @@ function setup() {
       },
     });
     myMessage.value ="";
+    currSending.value = false;
     }
 
   return {
     myMessage,
     messageObjects,
     sortedMessages,
+    currSending,
     sendMessage,
   };
 }
