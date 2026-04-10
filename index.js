@@ -23,7 +23,8 @@ function setup() {
     messageObjects.value.toSorted((a,b) => b.value.published - a.value.published)
   );
 
-  function sendMessage() {
+  async function sendMessage() {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     messageObjects.value.push({
       value: {
         content: myMessage.value,
