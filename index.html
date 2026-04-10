@@ -34,14 +34,14 @@
                         v-model="myMessage"
                         placeholder="Message"
                     />
-                    <input type="submit" value="Send" />
+                    <input type="submit" value="Send" :disabled = "!myMessage"/>
                 </form>
             </template>
 
             <h2>Messages</h2>
 
             <ul>
-                <li v-for="object of messageObjects">
+                <li v-for="object of sortedMessages">
                     {{ object.value.content }}
                 </li>
             </ul>

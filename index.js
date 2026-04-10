@@ -1,4 +1,4 @@
-import { createApp, ref } from "vue";
+import { createApp, ref, computed} from "vue";
 import { GraffitiLocal } from "@graffiti-garden/implementation-local";
 import { GraffitiDecentralized } from "@graffiti-garden/implementation-decentralized";
 import {
@@ -18,6 +18,10 @@ function setup() {
 
   // Declare a signal representing the messages in the chat
   const messageObjects = ref([]);
+  // sort messages
+  const sortedMessages = computed(() =>
+    messageObjects.value.toSorted((a,b) => b.value.published - a.value.published)
+  );
 
   function sendMessage() {
     messageObjects.value.push({
@@ -26,11 +30,13 @@ function setup() {
         published: Date.now(),
       },
     });
-  }
+    myMessage.value ="";
+    }
 
   return {
     myMessage,
     messageObjects,
+    sortedMessages,
     sendMessage,
   };
 }
