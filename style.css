@@ -19,3 +19,36 @@ input[type="text"] {
     font-style: italic;
     text-decoration: line-through;
 }
+
+.reply-quote {
+    background: #f6f6f6;
+    border-radius: 14px;
+    padding: 8px 12px;
+    font-size: 0.78rem;
+    color: #555;
+    max-width: 100%;
+    width: fit-content;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.mine .reply-quote {
+    background: #f6f6f6;
+    color: #555;
+}
+
+.mine .reply-quote.reply-quote-own {
+    background: #89c4ff;
+    color: #fff;
+}
+
+.reply-quote-label {
+    font-size: 0.7rem;
+    color: #9ca3af;
+    padding: 0 4px;
+    margin-bottom: 2px;
+}
+
+.mine .reply-quote-label {
+    text-align: right;
+}
